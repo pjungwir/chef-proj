@@ -31,7 +31,8 @@ bash "install_proj_#{proj_version}" do
     cd #{untar_dir} && \
     tar xzvf /tmp/#{tarball} && \
     cd proj-#{proj_version} && \
-    ./configure && make && make install
+    ./configure && make && make install && \
+    ldconfig
   EOH
   command ""
   creates untar_dir + "/proj-#{proj_version}"
