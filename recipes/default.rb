@@ -35,6 +35,6 @@ bash "install_proj_#{proj_version}" do
     ldconfig
   EOH
   command ""
-  creates untar_dir + "/proj-#{proj_version}"
+  creates "/usr/local/bin/proj"
   action :run
 end
