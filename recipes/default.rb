@@ -18,7 +18,7 @@ end
 
 tarball = "proj-#{proj_version}.tar"
 tarball_gz = "proj-#{proj_version}.tar.gz"
-remote_file "/tmp/#{tarball}" do
+remote_file "/tmp/#{tarball_gz}" do
   source "http://download.osgeo.org/proj/#{tarball_gz}"
   mode "0644"
   action :create_if_missing
@@ -29,7 +29,7 @@ bash "install_proj_#{proj_version}" do
   user "root"
   code <<-EOH
     cd #{untar_dir} && \
-    tar xzvf /tmp/#{tarball} && \
+    tar xzvf /tmp/#{tarball_gz} && \
     cd proj-#{proj_version} && \
     ./configure && make && make install && \
     ldconfig
